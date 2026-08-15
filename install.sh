@@ -147,7 +147,7 @@ for event, entries in WANT.items():
         target = {"hooks": []}
         groups.append(target)
     for name, timeout, is_async in entries:
-        cmd = "~/.claude/hooks/" + name
+        cmd = os.path.expanduser("~/.claude/hooks/") + name
         if cmd in registered:
             continue
         target.setdefault("hooks", []).append(
